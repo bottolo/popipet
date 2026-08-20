@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+	--color-baltic-blue: #1d5f9a;
+	--color-sky-surge: #56c1ea;
+	--color-icy-aqua: #a5f9f9;
+	--color-white: #ffffff;
+	--color-apricot-cream: #e8cd9e;
+
+	--font-display: "Caveat", cursive;
+	--radius-surface: 0.75rem;
+}
+
+body {
+	min-height: 100vh;
+	background-color: var(--color-white);
+	background-image: radial-gradient(
+		circle,
+		color-mix(in srgb, var(--color-sky-surge) 25%, transparent) 1px,
+		transparent 1px
+	);
+	background-size: 24px 24px;
+	font-family: var(--font-display);
+}
+
+@layer components {
+	.banner {
+		@apply w-full rounded-xl bg-sky-surge px-6 py-4 text-center text-4xl font-bold text-white md:text-5xl;
+	}
+
+	.bio-card {
+		@apply w-full rounded-xl bg-sky-surge p-6 text-center text-xl leading-relaxed text-white md:flex md:flex-1 md:flex-col md:justify-center md:self-stretch md:p-8 md:text-2xl;
+	}
+
+	.btn-link {
+		@apply block w-full rounded-lg bg-sky-surge px-6 py-3 text-center text-xl font-semibold text-white transition-colors duration-200 hover:bg-apricot-cream hover:text-baltic-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-icy-aqua md:text-2xl;
+	}
+
+	.secret-strip {
+		@apply pointer-events-none fixed bottom-16 left-[-4rem] z-20 w-[130vw] rotate-[28deg] overflow-hidden bg-baltic-blue py-2 shadow-md md:bottom-20 md:left-[-3rem];
+		transform-origin: left center;
+	}
+
+	.secret-strip__track {
+		@apply flex w-max text-lg font-semibold whitespace-nowrap text-white md:text-xl;
+		animation: secret-marquee 45s linear infinite;
+	}
+
+	.secret-strip__track span {
+		@apply shrink-0 pr-8;
+	}
+}
+
+@keyframes secret-marquee {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.secret-strip__track {
+		animation: none;
+	}
+}

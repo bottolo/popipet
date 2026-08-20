@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Banner from "../components/Banner.astro";
+import LinkButton from "../components/LinkButton.astro";
+import BioCard from "../components/BioCard.astro";
+import SecretStrip from "../components/SecretStrip.astro";
+
+const links = [
+	{ label: "IG", href: "https://www.instagram.com/sophy.ret/" },
+	{ label: "TWT", href: "https://x.com/Sophyret" },
+	{ label: "KO-FI", href: "https://ko-fi.com/sophyret/shop" },
+	{ label: "ART.FIG", href: "https://artfight.net/login" },
+	{ label: "SHOP", href: "https://sophyret.sumupstore.com/" },
+	{ label: "VGEN", href: "https://vgen.co/Sophyret" },
+];
+---
+
+<Layout>
+	<div
+		class="mx-auto w-full max-w-xs px-4 py-8 pb-40 md:max-w-3xl md:px-8 md:py-12 md:pb-56"
+	>
+		<Banner />
+
+		<main class="mt-6 flex flex-col gap-6 md:mt-8 md:flex-row md:items-stretch md:gap-4">
+			<nav class="flex w-full flex-col gap-2 md:w-64 md:shrink-0" aria-label="Social and shop links">
+				{links.map((link) => (
+					<LinkButton href={link.href} label={link.label} />
+				))}
+			</nav>
+
+			<BioCard />
+		</main>
+	</div>
+
+	<img
+		src="/oc.webp"
+		alt=""
+		class="pointer-events-none fixed bottom-0 right-0 z-10 max-h-[35vh] w-auto max-w-[min(70vw,320px)] object-contain object-bottom md:max-h-[50vh] md:max-w-[min(45vw,480px)]"
+	/>
+
+	<SecretStrip />
+</Layout>
