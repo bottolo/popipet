@@ -1,0 +1,28 @@
+---
+interface Props {
+	orientation?: "vertical" | "horizontal";
+}
+
+const { orientation = "vertical" } = Astro.props;
+
+const isVertical = orientation === "vertical";
+---
+
+<div
+	class:list={[
+		"shrink-0 justify-center",
+		isVertical
+			? "hidden self-stretch px-1 md:flex md:items-center"
+			: "flex w-full py-2 md:hidden",
+	]}
+	aria-hidden="true"
+>
+	<div
+		class:list={[
+			isVertical ? "min-h-full w-1" : "h-1 w-full",
+			"bg-[radial-gradient(circle,var(--color-sky-surge)_1.5px,transparent_1.5px)]",
+			isVertical ? "bg-size-[100%_7px]" : "bg-size-[7px_100%]",
+		]}
+	>
+	</div>
+</div>
