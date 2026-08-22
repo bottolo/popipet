@@ -1,0 +1,19 @@
+---
+import type { LinkItem } from "@/data/links";
+import { linkButtonClass } from "@/lib/link-button-classes";
+
+interface Props extends LinkItem {}
+
+const { label, handle, href } = Astro.props;
+---
+
+<a
+	href={href}
+	target="_blank"
+	rel="noopener noreferrer"
+	class={`${linkButtonClass} relative overflow-hidden`}
+	data-link-card
+>
+	<span class="font-heading text-base">{label}</span>
+	<span class="text-sm opacity-80">{handle}</span>
+</a>

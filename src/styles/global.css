@@ -94,3 +94,13 @@
     @apply font-heading;
   }
 }
+
+.link-rat {
+  position: fixed;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}

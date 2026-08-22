@@ -1,0 +1,20 @@
+---
+import LinkCard from "@/components/bento/LinkCard.astro";
+import ProfileSection from "@/components/bento/ProfileSection.astro";
+import { links } from "@/data/links";
+---
+
+<div
+	class="mx-auto flex w-full max-w-4xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-start"
+>
+	<ProfileSection />
+	<div class="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2">
+		{links.map((link) => <LinkCard {...link} />)}
+	</div>
+</div>
+
+<script>
+	import { initLinkRat } from "@/scripts/link-rat";
+
+	initLinkRat();
+</script>

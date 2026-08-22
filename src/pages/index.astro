@@ -1,15 +1,15 @@
 ---
 import Layout from "@/layouts/main.astro";
-import BentoPage from "@/components/bento/BentoPage";
-import Marquee from "@/components/ui/marquee";
+import BentoPage from "@/components/bento/BentoPage.astro";
+import Marquee from "@/components/ui/Marquee.astro";
 import { marqueeItems } from "@/data/marquee";
 ---
-
+ 
 <Layout>
   <div class="flex min-h-svh flex-col">
     <main class="flex-1">
-      <BentoPage client:load />
+      <BentoPage />
     </main>
-    <Marquee client:load items={marqueeItems} />
+    <Marquee items={marqueeItems} />
   </div>
 </Layout>

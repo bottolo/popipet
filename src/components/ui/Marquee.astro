@@ -1,0 +1,31 @@
+---
+interface Props {
+	items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div
+	class="relative flex w-full overflow-x-hidden border-t-2 border-b-2 border-border bg-secondary-background font-base text-foreground"
+>
+	<div class="animate-marquee py-12 whitespace-nowrap">
+		{
+			items.map((item, index) => (
+				<span class="mx-4 text-4xl" data-marquee-item={index}>
+					{item}
+				</span>
+			))
+		}
+	</div>
+
+	<div class="absolute top-0 animate-marquee2 py-12 whitespace-nowrap">
+		{
+			items.map((item, index) => (
+				<span class="mx-4 text-4xl" data-marquee-item={index}>
+					{item}
+				</span>
+			))
+		}
+	</div>
+</div>
